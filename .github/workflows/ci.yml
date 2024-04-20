@@ -1,25 +1,23 @@
 name: Python CI
 
 on:
-  push: 
-    branches: [main]  
+  push:
+    branches: [main]
   pull_request:
     branches: [main]
 
 jobs:
-  build: 
+  build:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
 
-    - name: Set up Python  
+    - name: Set up Python
       uses: actions/setup-python@v4
       with:
-        python-version: 3.12.1
+        python-version: 3.12
 
-  - name: Run tests 
+  - name: Run tests
     run: |
-      Python -m unittest test_suma.py 
-
-
+      Python -m unittest test_suma.py
