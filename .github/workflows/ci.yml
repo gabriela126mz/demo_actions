@@ -1,24 +1,24 @@
 name: Python CI
 
 on:
-  push: #Cuando hacemos push a la rama main debo de hacer pull_request de main
-    branches: [main]  #Cambia "main" si tu rama principal tiene otro nombre
+  push: 
+    branches: [main]  
   pull_request:
     branches: [main]
 
 jobs:
-  build: #Queremos que nos cree instancia de un ordenador donde voy a ejecutar mi codigo en python
-    runs-on: ubuntu-latest #que nos cree automaticamente una maquina virtual, que haga instancia con la máquina con ubuntu, donde vamos a crear nuestro repositorio de python y ejecutar las pruebas
+  build: 
+    runs-on: ubuntu-latest
     steps:
-    - name: Checkout repository #hace checkout de nuestro repo
+    - name: Checkout repository
       uses: actions/checkout@v4
 
-    - name: Set up Python  #hace set up de un entorno para python 
+    - name: Set up Python  
       uses: actions/setup-python@v4
       with:
-        python-version: 3.12.1 #usaremos esta version para python
+        python-version: 3.12.1
 
-  - name: Run tests #le decimos que ejecuta las pruebas que estanen test_suma.py
+  - name: Run tests 
     run: |
       Python -m unittest test_suma.py 
 
